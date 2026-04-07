@@ -1,73 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Happy Birthday Palak 💖</title>
+  <title>Palak: The Series 💖</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #ffe6f0, #f7e6ff);
-      text-align: center;
-      color: #333;
+      background: black;
+      color: white;
       overflow-x: hidden;
     }
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 55px;
-      color: #ff4d88;
-      margin-top: 80px;
+    h1, h2 {
+      margin-left: 40px;
     }
 
-    p {
-      font-size: 18px;
-      max-width: 600px;
-      margin: auto;
+    /* INTRO */
+    #intro {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
-    .btn {
-      padding: 12px 20px;
-      margin: 10px;
-      border: none;
-      border-radius: 25px;
-      background: #ff4d88;
-      color: white;
+    .profile {
       cursor: pointer;
-      font-size: 15px;
+      text-align: center;
     }
 
-    .box {
+    .profile img {
+      width: 130px;
+      border-radius: 10px;
+    }
+
+    /* MAIN */
+    #main {
+      display: none;
+    }
+
+    /* ROWS */
+    .row {
+      display: flex;
+      overflow-x: auto;
+      padding: 20px 40px;
+      gap: 15px;
+    }
+
+    .card {
+      min-width: 220px;
+      height: 130px;
+      background: #222;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+      background: #ff4d88;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .modal-content {
       background: white;
-      margin: 40px auto;
-      padding: 25px;
-      width: 65%;
+      color: black;
+      padding: 30px;
       border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      max-width: 600px;
     }
 
-    img {
-      width: 220px;
-      border-radius: 12px;
-      margin: 10px;
-    }
-
-    /* FLOATING HEARTS */
+    /* HEARTS */
     .heart {
       position: fixed;
       bottom: -10px;
-      font-size: 20px;
       animation: floatUp 6s linear infinite;
       opacity: 0.6;
     }
 
     @keyframes floatUp {
-      0% {
-        transform: translateY(0);
-        opacity: 0.6;
-      }
       100% {
         transform: translateY(-110vh);
         opacity: 0;
@@ -78,148 +112,103 @@
 
 <body>
 
-<!-- HEARTS -->
+<!-- INTRO -->
+<div id="intro">
+  <h1 style="color:red;">NETFLIX</h1>
+  <h2>Who’s watching?</h2>
+
+  <div class="profile" onclick="enterSite()">
+    <img src="https://i.pinimg.com/736x/9b/5d/6e/9b5d6e6d5b0a3b7b2d6d3e6e6e6e6e.jpg">
+    <p>Palak 💖</p>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+
+<h1>Palak: The Series 💖</h1>
+
+<!-- CONTINUE WATCHING -->
+<h2>Continue Watching</h2>
+<div class="row">
+  <div class="card" onclick="openModal('ep1')">Episode 1</div>
+  <div class="card" onclick="openModal('ep2')">Episode 2</div>
+</div>
+
+<!-- SEASON 1 -->
+<h2>Season 1</h2>
+<div class="row">
+  <div class="card" onclick="openModal('ep1')">The Beginning</div>
+</div>
+
+<!-- SEASON 2 -->
+<h2>Season 2</h2>
+<div class="row">
+  <div class="card" onclick="openModal('ep2')">Chaos Era</div>
+</div>
+
+<!-- SEASON 3 -->
+<h2>Season 3</h2>
+<div class="row">
+  <div class="card" onclick="openModal('ep3')">The Real Part</div>
+</div>
+
+</div>
+
+<!-- MODALS -->
+<div id="ep1" class="modal" onclick="closeModal(this)">
+  <div class="modal-content">
+    <h2>Episode 1: The Beginning</h2>
+    <p>from random strangers to something unexpectedly permanent 💖</p>
+  </div>
+</div>
+
+<div id="ep2" class="modal" onclick="closeModal(this)">
+  <div class="modal-content">
+    <h2>Episode 2: Chaos Era</h2>
+    <p>the laughs, the madness, the “let’s do something stupid” phase 😭</p>
+  </div>
+</div>
+
+<div id="ep3" class="modal" onclick="closeModal(this)">
+  <div class="modal-content">
+    <h2>Episode 3: The Real Part</h2>
+    <p>
+      you’re my comfort, my chaos, and my home  
+      and i’m never letting you go 💌
+    </p>
+  </div>
+</div>
+
+<!-- AUDIO -->
+<audio id="tudum" src="https://www.myinstants.com/media/sounds/netflix-tudum.mp3"></audio>
+
+<!-- JS -->
 <script>
+function enterSite() {
+  document.getElementById("tudum").play();
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("main").style.display = "block";
+}
+
+function openModal(id) {
+  document.getElementById(id).style.display = "flex";
+}
+
+function closeModal(el) {
+  el.style.display = "none";
+}
+
+/* hearts */
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
   heart.innerHTML = "💖";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (Math.random() * 10 + 15) + "px";
   document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 6000);
+  setTimeout(() => heart.remove(), 6000);
 }
-
 setInterval(createHeart, 400);
-</script>
-
-<!-- LANDING -->
-<h1>HAPPY BIRTHDAY PALAK 🎂</h1>
-
-<p>
-For my biggest blessing and the one thing I did right in life 💖  
-This is your official birthday website because no amount of VNs can make up for it
-</p>
-
-<button class="btn" onclick="scrollToSection('chaos')">enter the chaos ✨</button>
-<button class="btn" onclick="scrollToSection('letter')">skip to emotional damage 💌</button>
-
-
-<!-- DISCLAIMER -->
-<div id="chaos" class="box">
-  <h3>⚠️ warning before you continue</h3>
-
-  <p>
-    this website contains emotional damage, embarrassing memories,  
-    and undeniable proof that you are stuck with me forever.
-  </p>
-
-  <p>
-    <b>side effects may include:</b><br>
-    crying, smiling, laughing, and texting me immediately after reading this.
-  </p>
-
-  <p>
-    <b>proceed at your own risk:</b><br>
-     because i worked hard on this 😤
-  </p>
-</div>
-
-
-<!-- MEMORIES -->
-<div class="box">
-  <h3>how it started vs how it’s going</h3>
-
-  <img src="photo1.jpg">
-  <img src="photo2.jpg">
-
-  <p>
-    i still don’t understand how we went from random chaos to this level of attachment  
-    but honestly best accident of my life.
-  </p>
-</div>
-
-
-<!-- ABOUT HER -->
-<div class="box">
-  <h3>palak as a person 💖</h3>
-
-  <p>
-    you are literally the life of every room you walk into.  
-    the one who is always down for anything, no questions asked.  
-  </p>
-
-  <p>
-    but at the same time, you’re the softest, most emotional,  
-    most caring person i know… and that’s what makes you irreplaceable.
-  </p>
-</div>
-
-
-<!-- LETTER -->
-<div id="letter" class="box">
-  <h3>a note for you 💌</h3>
-
-  <p>
-    palak,  
-    i don’t think you even realize how much you mean to me.
-  </p>
-
-  <p>
-    you’re my go-to person, my comfort, my chaos partner,  
-    and honestly one of the best things that’s ever happened to me.
-  </p>
-
-  <p>
-    no matter what happens, just know you will always have me.  
-    through every phase, every breakdown, every random plan.
-  </p>
-
-  <p>
-    i’m so grateful for you.  
-    and i wouldn’t trade this friendship for anything.
-  </p>
-
-  <p>
-    happy birthday my person 💖
-  </p>
-</div>
-
-
-<!-- FINAL -->
-<div class="box">
-  <h3>final message 🎁</h3>
-
-  <p>
-    you’re stuck with me for life btw  
-    no returns, no refunds 💅
-  </p>
-</div>
-
-
-<!-- REASONS -->
-<div class="box">
-  <h3>reasons you’re actually my favourite human 💖</h3>
-
-  <p><b>you get me:</b><br>like actually understand me without me having to explain everything</p>
-
-  <p><b>you make things lighter:</b><br>everything feels okay with you</p>
-
-  <p><b>you love loudly:</b><br>and make people feel seen and safe</p>
-
-  <p><b>you hype me up:</b><br>my personal cheerleader fr</p>
-
-  <p><b>you’re home:</b><br>and that means everything</p>
-</div>
-
-
-<script>
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-}
 </script>
 
 </body>
