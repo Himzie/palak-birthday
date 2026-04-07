@@ -14,99 +14,109 @@
       overflow-x: hidden;
     }
 
-    h1, h2 {
-      margin-left: 40px;
-    }
-
-    /* INTRO */
+    /* INTRO ANIMATION */
     #intro {
       position: fixed;
       width: 100%;
       height: 100vh;
       background: black;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
     }
 
-    .profile {
-      cursor: pointer;
+    .netflix-n {
+      font-size: 120px;
+      font-weight: bold;
+      color: red;
+      animation: reveal 2s ease forwards;
+    }
+
+    @keyframes reveal {
+      0% { opacity: 0; transform: scale(0.5); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* PROFILE SCREEN */
+    #profiles {
+      display: none;
       text-align: center;
     }
 
+    .profile {
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
     .profile img {
-      width: 130px;
+      width: 120px;
       border-radius: 10px;
     }
 
     /* MAIN */
     #main {
       display: none;
-    }
-
-    /* ROWS */
-    .row {
-      display: flex;
-      overflow-x: auto;
-      padding: 20px 40px;
-      gap: 15px;
-    }
-
-    .card {
-      min-width: 220px;
-      height: 130px;
-      background: #222;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s;
-      cursor: pointer;
-    }
-
-    .card:hover {
-      transform: scale(1.1);
-      background: #ff4d88;
-    }
-
-    /* MODAL */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.9);
-      justify-content: center;
-      align-items: center;
-      text-align: center;
       padding: 20px;
     }
 
-    .modal-content {
+    h1 {
+      margin-left: 20px;
+    }
+
+    /* NETFLIX CARD */
+    .hero {
+      position: relative;
+      margin: 40px;
+      height: 250px;
+      background: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .hero:hover {
+      transform: scale(1.05);
+    }
+
+    .hero video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .hero:hover video {
+      display: block;
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+    }
+
+    .play-btn {
+      padding: 10px 20px;
       background: white;
       color: black;
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 600px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
     }
 
-    /* HEARTS */
-    .heart {
-      position: fixed;
-      bottom: -10px;
-      animation: floatUp 6s linear infinite;
-      opacity: 0.6;
+    /* EPISODES */
+    .episodes {
+      display: none;
+      padding: 20px;
     }
 
-    @keyframes floatUp {
-      100% {
-        transform: translateY(-110vh);
-        opacity: 0;
-      }
+    .episode {
+      margin: 10px 0;
+      cursor: pointer;
     }
+
   </style>
 </head>
 
@@ -114,7 +124,11 @@
 
 <!-- INTRO -->
 <div id="intro">
-  <h1 style="color:red;">NETFLIX</h1>
+  <div class="netflix-n">N</div>
+</div>
+
+<!-- PROFILES -->
+<div id="profiles">
   <h2>Who’s watching?</h2>
 
   <div class="profile" onclick="enterSite()">
@@ -126,89 +140,50 @@
 <!-- MAIN -->
 <div id="main">
 
-<h1>Palak: The Series 💖</h1>
+<h1>Palak: The Series</h1>
 
-<!-- CONTINUE WATCHING -->
-<h2>Continue Watching</h2>
-<div class="row">
-  <div class="card" onclick="openModal('ep1')">Episode 1</div>
-  <div class="card" onclick="openModal('ep2')">Episode 2</div>
-</div>
+<div class="hero" onclick="showEpisodes()">
+  <video src="https://www.w3schools.com/html/mov_bbb.mp4" muted loop></video>
 
-<!-- SEASON 1 -->
-<h2>Season 1</h2>
-<div class="row">
-  <div class="card" onclick="openModal('ep1')">The Beginning</div>
-</div>
-
-<!-- SEASON 2 -->
-<h2>Season 2</h2>
-<div class="row">
-  <div class="card" onclick="openModal('ep2')">Chaos Era</div>
-</div>
-
-<!-- SEASON 3 -->
-<h2>Season 3</h2>
-<div class="row">
-  <div class="card" onclick="openModal('ep3')">The Real Part</div>
-</div>
-
-</div>
-
-<!-- MODALS -->
-<div id="ep1" class="modal" onclick="closeModal(this)">
-  <div class="modal-content">
-    <h2>Episode 1: The Beginning</h2>
-    <p>from random strangers to something unexpectedly permanent 💖</p>
+  <div class="hero-content">
+    <h2>Palak: The Series 💖</h2>
+    <button class="play-btn">Play</button>
   </div>
 </div>
 
-<div id="ep2" class="modal" onclick="closeModal(this)">
-  <div class="modal-content">
-    <h2>Episode 2: Chaos Era</h2>
-    <p>the laughs, the madness, the “let’s do something stupid” phase 😭</p>
-  </div>
 </div>
 
-<div id="ep3" class="modal" onclick="closeModal(this)">
-  <div class="modal-content">
-    <h2>Episode 3: The Real Part</h2>
-    <p>
-      you’re my comfort, my chaos, and my home  
-      and i’m never letting you go 💌
-    </p>
-  </div>
+<!-- EPISODES -->
+<div id="episodes" class="episodes">
+  <h2>Episodes</h2>
+
+  <div class="episode">Episode 1: The Beginning 💖</div>
+  <div class="episode">Episode 2: Chaos Era 😭</div>
+  <div class="episode">Episode 3: The Real Part 💌</div>
 </div>
 
 <!-- AUDIO -->
 <audio id="tudum" src="https://www.myinstants.com/media/sounds/netflix-tudum.mp3"></audio>
 
-<!-- JS -->
 <script>
+
+/* INTRO FLOW */
+setTimeout(() => {
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("profiles").style.display = "block";
+}, 2000);
+
 function enterSite() {
   document.getElementById("tudum").play();
-  document.getElementById("intro").style.display = "none";
+  document.getElementById("profiles").style.display = "none";
   document.getElementById("main").style.display = "block";
 }
 
-function openModal(id) {
-  document.getElementById(id).style.display = "flex";
+/* SHOW EPISODES */
+function showEpisodes() {
+  document.getElementById("episodes").style.display = "block";
 }
 
-function closeModal(el) {
-  el.style.display = "none";
-}
-
-/* hearts */
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML = "💖";
-  heart.style.left = Math.random() * 100 + "vw";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}
-setInterval(createHeart, 400);
 </script>
 
 </body>
