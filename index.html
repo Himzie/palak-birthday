@@ -1,55 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Happy Birthday Palak 💖</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <!-- Fonts (very similar to original site) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
+      background: #fdf6f9;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #ffe6f0, #f7e6ff);
       text-align: center;
-      color: #333;
+      color: #444;
     }
 
-    h1 {
-      font-size: 55px;
-      color: #ff4d88;
-      margin-top: 80px;
-    }
-
-    p {
-      font-size: 18px;
-      max-width: 600px;
+    .section {
+      padding: 80px 20px;
+      max-width: 700px;
       margin: auto;
     }
 
-    .btn {
-      padding: 12px 20px;
-      margin: 10px;
-      border: none;
-      border-radius: 25px;
-      background: #ff4d88;
-      color: white;
-      cursor: pointer;
-      font-size: 15px;
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      color: #e75480;
     }
 
-    .box {
-      background: white;
-      margin: 40px auto;
-      padding: 25px;
-      width: 65%;
-      border-radius: 18px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: #e75480;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 18px;
+      border: 1px solid #e75480;
+      border-radius: 25px;
+      background: transparent;
+      color: #e75480;
+      cursor: pointer;
     }
 
     img {
       width: 220px;
-      border-radius: 12px;
       margin: 10px;
+      border-radius: 10px;
+    }
+
+    .divider {
+      margin: 60px auto;
+      width: 60px;
+      height: 2px;
+      background: #e75480;
     }
   </style>
 </head>
@@ -57,89 +68,79 @@
 <body>
 
 <!-- LANDING -->
-<h1>HAPPY BIRTHDAY PALAK 🎂</h1>
+<div class="section">
+  <h1>Happy Birthday Palak 🎂</h1>
+  <p>
+    for my biggest blessing and the one thing I did right in life 💖  
+    this is your official birthday website because no amount of VNs can make up for it
+  </p>
 
-<p>
-for the most chaotic, loving, emotionally attached human ever 💖  
-this is your official birthday website because normal texts are boring
-</p>
+  <button class="btn" onclick="scrollToSection('letter')">continue ↓</button>
+</div>
 
-<button class="btn" onclick="scrollToSection('chaos')">enter the chaos ✨</button>
-<button class="btn" onclick="scrollToSection('letter')">skip to emotional damage 💌</button>
-
+<div class="divider"></div>
 
 <!-- DISCLAIMER -->
-<div id="chaos" class="box">
-  <h3>⚠️ warning before you continue</h3>
-
+<div class="section">
+  <h2>⚠️ before you continue</h2>
   <p>
     this website contains emotional damage, embarrassing memories,  
-    and undeniable proof that you are stuck with me forever.
+    and proof that you’re stuck with me forever.
   </p>
-
   <p>
-    <b>side effects may include:</b><br>
-    crying, smiling, laughing, and texting me immediately after reading this.
-  </p>
-
-  <p>
-    proceed at your own risk because i worked hard on this 😤
+    side effects: crying, smiling, texting me immediately.
   </p>
 </div>
 
+<div class="divider"></div>
 
 <!-- MEMORIES -->
-<div class="box">
-  <h3>how it started vs how it’s going</h3>
+<div class="section">
+  <h2>how it started vs how it’s going</h2>
 
   <img src="photo1.jpg">
   <img src="photo2.jpg">
 
   <p>
-    i still don’t understand how we went from random chaos to this level of attachment  
-    but honestly best accident of my life.
+    i still don’t understand how we went from random chaos  
+    to this level of attachment… but best accident of my life.
   </p>
 </div>
 
+<div class="divider"></div>
 
-<!-- ABOUT HER -->
-<div class="box">
-  <h3>palak as a person 💖</h3>
+<!-- ABOUT -->
+<div class="section">
+  <h2>palak as a person 💖</h2>
 
   <p>
-    you are literally the life of every room you walk into.  
-    the one who is always down for anything, no questions asked.  
+    you’re the life of every room.  
+    always down for anything, no questions asked.
   </p>
 
   <p>
-    but at the same time, you’re the softest, most emotional,  
-    most caring person i know… and that’s what makes you irreplaceable.
+    but also the softest, most emotional,  
+    most caring person i know.
   </p>
 </div>
 
+<div class="divider"></div>
 
 <!-- LETTER -->
-<div id="letter" class="box">
-  <h3>a note for you 💌</h3>
+<div id="letter" class="section">
+  <h2>a note for you 💌</h2>
 
   <p>
-    palak,  
-    i don’t think you even realize how much you mean to me.
+    palak, i don’t think you even realize how much you mean to me.
   </p>
 
   <p>
-    you’re my go-to person, my comfort, my chaos partner,  
-    and honestly one of the best things that’s ever happened to me.
+    you’re my comfort, my chaos partner,  
+    and one of the best things that’s ever happened to me.
   </p>
 
   <p>
-    no matter what happens, just know you will always have me.  
-    through every phase, every breakdown, every random plan.
-  </p>
-
-  <p>
-    i’m so grateful for you.  
-    and i wouldn’t trade this friendship for anything.
+    no matter what happens, you’ll always have me.
   </p>
 
   <p>
@@ -147,17 +148,33 @@ this is your official birthday website because normal texts are boring
   </p>
 </div>
 
+<div class="divider"></div>
 
 <!-- FINAL -->
-<div class="box">
-  <h3>final message 🎁</h3>
-
+<div class="section">
+  <h2>final message 🎁</h2>
   <p>
     you’re stuck with me for life btw  
     no returns, no refunds 💅
   </p>
 </div>
 
+<div class="divider"></div>
+
+<!-- REASONS -->
+<div class="section">
+  <h2>reasons you’re actually my favourite human 💖</h2>
+
+  <p><b>you get me:</b><br>like actually understand me without explaining everything</p>
+
+  <p><b>you make things lighter:</b><br>everything feels okay with you</p>
+
+  <p><b>you love loudly:</b><br>and make people feel seen</p>
+
+  <p><b>you hype me up:</b><br>my personal cheerleader fr</p>
+
+  <p><b>you’re home:</b><br>and that means everything</p>
+</div>
 
 <script>
 function scrollToSection(id) {
